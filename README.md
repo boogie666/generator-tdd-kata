@@ -2,6 +2,23 @@
 
 > [Yeoman](http://yeoman.io) generator
 
+## What's a kata?
+
+A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.
+
+This generator holds ( or will hold :P ) several template katas to help you get started with TDD.
+
+Once generated, a kata project will contain a very simple gulp file with two commands: gulp watch and gulp test
+
+gulp watch will run all the tests in the project on every file change (this is also the default gulp task, so feel free to just run 'gulp').
+gulp test will run a single test.
+
+Mocha is used as the test runner.
+
+Along with the gulp file you'll get src/ folder with two files (a test file with a single failing test, and a 'main' file ) and a README.MD file with the specs you'll have to implement for the kata you've selected.
+
+Now go forth a practice your katas 
+
 
 ## Getting Started
 
