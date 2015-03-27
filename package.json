@@ -4,10 +4,10 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "boogie666/generator-tdd-kata",
+  "repository": "https://github.com/boogie666/generator-tdd-kata.git",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Boogie",
+    "email": "bbugarschi@gmail.com",
     "url": "https://github.com/boogie666"
   },
   "engines": {
