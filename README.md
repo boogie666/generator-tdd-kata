@@ -59,6 +59,10 @@ Yeoman has a heart of gold. He's a person with feelings and opinions, but he's v
 If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 
+## Stay updated
+
+We're adding more Katas day-by-day. To check latests visit: [TDD Katas](https://github.com/garora/TDD-Katas) 
+
 ## License
 
 MIT
