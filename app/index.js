@@ -3,7 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-var types = ['string-calculator', 'fizz-buzz'];
+var types = ['string-calculator', 'fizz-buzz', 'bowling-game', 'leap-year', 'odd-even', 'recently-used-list', 'word-wrap'];
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
