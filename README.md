@@ -1,4 +1,4 @@
-# generator-tdd-kata [![Build Status](https://secure.travis-ci.org/boogie666/generator-tdd-kata.png?branch=master)](https://travis-ci.org/boogie666/generator-tdd-kata)
+# generator-tdd-kata
 
 > [Yeoman](http://yeoman.io) generator
 
@@ -17,7 +17,7 @@ Mocha is used as the test runner.
 
 Along with the gulp file you'll get src/ folder with two files (a test file with a single failing test, and a 'main' file ) and a README.MD file with the specs you'll have to implement for the kata you've selected.
 
-Now go forth a practice your katas 
+Now go forth a practice your katas
 
 
 ## Getting Started
@@ -40,16 +40,20 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-tdd-kata from npm, run:
+To install generator-ao-tdd-kata on your system, clone it from Stash like so:
 
 ```bash
-npm install -g generator-tdd-kata
+$ cd ~/path/to/projects
+$ git clone ssh://git@stash.mtvi.com/~lianoglj/generator-ao-tdd-kata.git
+$ cd generator-ao-tdd-kata
+$ npm link
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo tdd-kata
+$ cd ~/path/to/projects
+$ yo ao-tdd-kata
 ```
 
 ### Getting To Know Yeoman
@@ -61,7 +65,7 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 
 ## Stay updated
 
-We're adding more Katas day-by-day. To check latests visit: [TDD Katas](https://github.com/garora/TDD-Katas) 
+We're adding more Katas day-by-day. To check latests visit: [TDD Katas](https://github.com/garora/TDD-Katas)
 
 ## License
 
