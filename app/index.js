@@ -58,26 +58,6 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.fs.copy(
-        this.templatePath(path.join('stacks', this.stack, '_package.json')),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-          this.templatePath(path.join('stacks', this.stack, '_gulpfile.js')),
-          this.destinationPath('gulpfile.js')
-      );
-
-      var context = {
-        name : this.name,
-        kataName : this.kata
-      };
-
-      this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
-
-      this.fs.copy(
-        this.templatePath(path.join('stacks', this.stack, 'jshintrc')),
-        this.destinationPath('.jshintrc')
-      );
 
       this.fs.copy(
         this.templatePath(path.join('katas', this.kata + '.md')),
@@ -86,15 +66,27 @@ module.exports = yeoman.generators.Base.extend({
    },
 
     projectfiles: function () {
-      var relAppFile = 'src/app_file.js';
-      this.fs.copy(
-        this.templatePath(path.join('stacks', this.stack, relAppFile)),
-        this.destinationPath(relAppFile.replace(/app_file/, this.kata))
-      );
 
       var context = {
+        name : this.name,
+        kataName : this.kata
+      };
+
+      this.template(path.join('stacks', this.stack, '_gulpfile.js'), 'gulpfile.js', context);
+      this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
+      this.template(path.join('stacks', this.stack, 'jshintrc'), '.jshintrc', context);
+      this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
+
+      context = {
         name : this.kata
       };
+
+      var relAppFile = 'src/app_file.js';
+      this.template(
+        path.join('stacks', this.stack, relAppFile),
+        relAppFile.replace(/app_file/, this.kata),
+        context
+      );
 
       var relTestFile = 'src/test_file.js';
       this.template(
