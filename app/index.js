@@ -66,6 +66,7 @@ module.exports = yeoman.generators.Base.extend({
       this.name = props.name;
       this.kata = props.kata;
       this.stack = props.stack;
+      this.version = "1.0.0";
 
       done();
     }.bind(this));
@@ -82,8 +83,9 @@ module.exports = yeoman.generators.Base.extend({
     projectfiles: function () {
 
       var context = {
-        name : this.name,
-        kataName : this.kata
+        name     : this.name,
+        kataName : this.kata,
+        version  : this.version
       };
 
       // list all file paths recursively, excluding directories

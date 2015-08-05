@@ -1,7 +1,7 @@
 {
   "name": "<%= kataName %>-with-mocha",
-  "version": "1.0.0",
-  "description": "",
+  "version": "<%= version %>",
+  "description": "Mocha-based TDD kata generator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
