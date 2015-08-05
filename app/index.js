@@ -1,10 +1,14 @@
 'use strict';
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
+var fs = require('fs');
 
-var types = ['string-calculator', 'fizz-buzz', 'bowling-game', 'leap-year', 'odd-even', 'recently-used-list', 'word-wrap'];
+  var availableKatas = fs.readdirSync(path.join(__dirname, "templates", "katas")).map(function(filename) {
+  return filename.replace(/\.md$/, '');
+});
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -29,7 +33,7 @@ module.exports = yeoman.generators.Base.extend({
         name : 'type',
         type : 'list',
         message : 'What type of kata?',
-        choices : types,
+        choices : availableKatas,
         default : 'string-calculator'
       }
     ];
