@@ -35,6 +35,7 @@
   "dependencies": {
     "camelize": "^1.0.0",
     "chalk": "^1.0.0",
+    "glob": "^5.0.14",
     "stringcase": "^1.0.8",
     "yeoman-generator": "^0.18.9",
     "yosay": "^1.0.2"

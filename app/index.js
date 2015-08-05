@@ -6,6 +6,7 @@ var yosay = require('yosay');
 var caser = require('stringcase');
 var path = require('path');
 var fs = require('fs');
+var glob = require('glob');
 
 
 function determineOutputFileName(context, fileName) {
@@ -85,33 +86,20 @@ module.exports = yeoman.generators.Base.extend({
         kataName : this.kata
       };
 
-      var contents = fs.readdirSync(path.join(__dirname, 'templates', 'stacks', this.stack));
-      var self = this;
-
-      contents.forEach(function(current) {
-        var currentPath = path.join(__dirname, 'templates', 'stacks', self.stack, current);
-        if (fs.statSync(currentPath).isFile()) {
-          self.template(
-            path.join('stacks', self.stack, current),
-            determineOutputFileName(context, current),
-            context
-          );
-        }
+      // list all file paths recursively, excluding directories
+      var contents = glob.sync("**", {
+        cwd: path.join(__dirname, 'templates', 'stacks', this.stack),
+        nodir: true
       });
 
-      var relAppFile = 'src/{kata_name}.js';
-      this.template(
-        path.join('stacks', this.stack, relAppFile),
-        determineOutputFileName(context, relAppFile),
-        context
-      );
-
-      var relTestFile = 'tests/{kata_name}.test.js';
-      this.template(
-        path.join('stacks', this.stack, relTestFile),
-        determineOutputFileName(context, relTestFile),
-        context
-      );
+      var self = this;
+      contents.forEach(function(current) {
+        self.template(
+          path.join('stacks', self.stack, current),
+          determineOutputFileName(context, current),
+          context
+        );
+      });
     }
   },
 
