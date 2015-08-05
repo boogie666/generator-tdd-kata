@@ -77,10 +77,6 @@ module.exports = yeoman.generators.Base.extend({
       this.template(path.join('stacks', this.stack, 'jshintrc'), '.jshintrc', context);
       this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
 
-      context = {
-        name : this.kata
-      };
-
       var relAppFile = 'src/app_file.js';
       this.template(
         path.join('stacks', this.stack, relAppFile),
