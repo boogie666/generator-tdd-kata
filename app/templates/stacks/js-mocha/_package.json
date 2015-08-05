@@ -1,5 +1,5 @@
 {
-  "name": "<%= kataName %>",
+  "name": "<%= kataName %>-with-mocha",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -19,12 +19,12 @@ describe('tdd-kata:app', function () {
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('creates javascript files', function () {
     assert.file([
       'README.MD',
       'gulpfile.js',
       'src/string-calculator.js',
-      'src/string-calculator.test.js',
+      'src/string-calculatorTest.js',
       'package.json',
       '.jshintrc'
     ]);

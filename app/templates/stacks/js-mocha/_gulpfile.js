@@ -7,8 +7,8 @@ chai.should();
 
 Error.stackTraceLimit = 2;
 
-gulp.task('test', function(){
-  gulp.src('src/**/*.test.js', {
+gulp.task('test', function() {
+  gulp.src('src/**/*Test.js', {
     read: false
   }).pipe(mocha()).on('error', function(e){
     console.warn(e.message);
