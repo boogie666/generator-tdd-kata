@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var path = require('path');
 
 var types = ['string-calculator', 'fizz-buzz', 'bowling-game', 'leap-year', 'odd-even', 'recently-used-list', 'word-wrap'];
 
@@ -33,7 +34,7 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.name = props.name;
       this.type = props.type;
-      
+
       done();
     }.bind(this));
   },
@@ -52,16 +53,16 @@ module.exports = yeoman.generators.Base.extend({
         kataName : this.type
       };
       this.template('_package.json', 'package.json', context);
-      
+
       this.fs.copy(
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc'));
 
       this.fs.copy(
-          this.templatePath(this.type+'/'+'README.MD'),
-          this.destinationPath('README.MD'));
+          this.templatePath(path.join('katas', this.type + '.md')),
+          this.destinationPath('README.md'));
 
-       
+
    },
 
     projectfiles: function () {
