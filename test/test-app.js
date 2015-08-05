@@ -5,28 +5,37 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
-describe('tdd-kata:app', function () {
+describe('tdd-kata:app', function (done) {
+
   before(function (done) {
-    helpers.run(path.join(__dirname, '../app'))
-      .inDir(path.join(os.tmpdir(), './temp-test'))
-      .withOptions({ 'skip-install': true })
-      .withPrompt({
-        name : 'some_name',
-        type : 'string-calculator'
-      })
-
-
-      .on('end', done);
+    done();
   });
 
-  it('creates javascript files', function () {
-    assert.file([
-      'README.MD',
-      'gulpfile.js',
-      'src/string-calculator.js',
-      'tests/string-calculatorTest.js',
-      'package.json',
-      '.jshintrc'
-    ]);
+  it('creates js-mocha katas', function (done) {
+
+    helpers
+      .run(path.join(__dirname, '../app'))
+      .inDir(path.join(os.tmpdir(), './temp-test'))
+      .withOptions({
+        'skip-install': true
+      })
+      .withPrompt({
+        name  : 'some_name',
+        kata  : 'string-calculator',
+        stack : 'js-mocha'
+      })
+
+      .on('end', function() {
+        assert.file([
+          'README.md',
+          'gulpfile.js',
+          'src/string-calculator.js',
+          'tests/string-calculatorTest.js',
+          'package.json',
+          '.jshintrc'
+        ]);
+
+        done();
+      });
   });
 });
