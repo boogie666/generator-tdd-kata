@@ -87,7 +87,7 @@ module.exports = yeoman.generators.Base.extend({
       };
 
       // list all file paths recursively, excluding directories
-      var contents = glob.sync("**", {
+      var contents = glob.sync('**', {
         cwd: path.join(__dirname, 'templates', 'stacks', this.stack),
         nodir: true
       });
