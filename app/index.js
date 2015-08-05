@@ -19,17 +19,20 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the fabulous ' + chalk.red('tdd-kata') + ' generator!'
     ));
 
-    var prompts = [{
-      name: 'name',
-      message: 'What is your name',
-      default : process.env.USER
-    },{
-      name : 'type',
-      type : 'list',
-      message : 'What type of kata?',
-      choices : types,
-      default : 'string-calculator'
-    }];
+    var prompts = [
+      {
+        name: 'name',
+        message: 'What is your name',
+        default : process.env.USER
+      },
+      {
+        name : 'type',
+        type : 'list',
+        message : 'What type of kata?',
+        choices : types,
+        default : 'string-calculator'
+      }
+    ];
 
     this.prompt(prompts, function (props) {
       this.name = props.name;
@@ -47,31 +50,37 @@ module.exports = yeoman.generators.Base.extend({
       );
       this.fs.copy(
           this.templatePath('_gulpfile.js'),
-          this.destinationPath('gulpfile.js'));
+          this.destinationPath('gulpfile.js')
+      );
+
       var context = {
         name : this.name,
         kataName : this.type
       };
+
       this.template('_package.json', 'package.json', context);
 
       this.fs.copy(
         this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc'));
+        this.destinationPath('.jshintrc')
+      );
 
       this.fs.copy(
-          this.templatePath(path.join('katas', this.type + '.md')),
-          this.destinationPath('README.md'));
-
-
+        this.templatePath(path.join('katas', this.type + '.md')),
+        this.destinationPath('README.md')
+      );
    },
 
     projectfiles: function () {
-      this.fs.copy(this.templatePath('src/app_file.js'),
-        this.destinationPath('src/'+this.type+'.js'));
+      this.fs.copy(
+        this.templatePath('src/app_file.js'),
+        this.destinationPath('src/'+this.type+'.js')
+      );
 
       var context = {
         name : this.type
       };
+
       this.template('src/test_file.js', 'src/' + this.type + '.test.js', context);
     }
   },
