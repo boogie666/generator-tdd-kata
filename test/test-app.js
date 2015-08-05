@@ -29,8 +29,8 @@ describe('tdd-kata:app', function (done) {
         assert.file([
           'README.md',
           'gulpfile.js',
-          'src/string-calculator.js',
-          'tests/string-calculatorTest.js',
+          'src/StringCalculator.js',
+          'tests/StringCalculatorTest.js',
           'package.json',
           '.jshintrc'
         ]);

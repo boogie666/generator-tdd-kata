@@ -3,6 +3,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var caser = require('stringcase');
 var path = require('path');
 var fs = require('fs');
 
@@ -100,14 +101,14 @@ module.exports = yeoman.generators.Base.extend({
       var relAppFile = 'src/app_file.js';
       this.template(
         path.join('stacks', this.stack, relAppFile),
-        relAppFile.replace(/app_file/, this.kata),
+        relAppFile.replace(/app_file/, caser.pascalcase(this.kata)),
         context
       );
 
       var relTestFile = 'tests/test_file.js';
       this.template(
         path.join('stacks', this.stack, relTestFile),
-        relTestFile.replace(/test_file/, this.kata + 'Test'),
+        relTestFile.replace(/test_file/, caser.pascalcase(this.kata) + 'Test'),
         context
       );
     }
