@@ -1,15 +1,24 @@
 {
   "name": "generator-ao-tdd-kata",
   "version": "0.0.8",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator to prepare TDD katas for Always On stack technologies.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "https://github.com/boogie666/generator-tdd-kata.git",
+
+  "repository": "ssh://git@stash.mtvi.com/~lianoglj/generator-ao-tdd-kata.git",
   "author": {
     "name": "Boogie",
     "email": "bbugarschi@gmail.com",
     "url": "https://github.com/boogie666"
   },
+  "contributors": [
+    {
+      "name": "John Lianoglou",
+      "email": "john.lianoglou@viacom.com",
+      "url": "https://stash.mtvi.com/users/~lianoglj"
+    }
+  ],
+
   "engines": {
     "node": ">=0.10.0"
   },
@@ -20,8 +29,12 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "tdd",
+    "kata",
+    "katas"
   ],
+
   "dependencies": {
     "yeoman-generator": "^0.18.9",
     "chalk": "^1.0.0",
