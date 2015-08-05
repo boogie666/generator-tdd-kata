@@ -8,12 +8,14 @@ var path = require('path');
 var fs = require('fs');
 
 
-function convertTemplateFilenameToOutputFilename(fileName) {
+function determineOutputFileName(context, fileName) {
   return fileName
     // double lodash prefix indicates a dotfile
     .replace(/^__/, '.')
     // otherwise, simply remove the lodash
-    .replace(/^_/, '');
+    .replace(/^_/, '')
+    // interpolate kata name into output filenames
+    .replace(/\{kata_name\}/, caser.pascalcase(context.kataName));
 }
 
 
@@ -70,12 +72,11 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-
       this.fs.copy(
         this.templatePath(path.join('katas', this.kata + '.md')),
         this.destinationPath('README.md')
       );
-   },
+    },
 
     projectfiles: function () {
 
@@ -92,7 +93,7 @@ module.exports = yeoman.generators.Base.extend({
         if (fs.statSync(currentPath).isFile()) {
           self.template(
             path.join('stacks', self.stack, current),
-            convertTemplateFilenameToOutputFilename(current),
+            determineOutputFileName(context, current),
             context
           );
         }
@@ -101,14 +102,14 @@ module.exports = yeoman.generators.Base.extend({
       var relAppFile = 'src/{kata_name}.js';
       this.template(
         path.join('stacks', this.stack, relAppFile),
-        relAppFile.replace(/\{kata_name\}/, caser.pascalcase(this.kata)),
+        determineOutputFileName(context, relAppFile),
         context
       );
 
       var relTestFile = 'tests/{kata_name}.test.js';
       this.template(
         path.join('stacks', this.stack, relTestFile),
-        relTestFile.replace(/\{kata_name\}/, caser.pascalcase(this.kata)),
+        determineOutputFileName(context, relTestFile),
         context
       );
     }
@@ -119,5 +120,6 @@ module.exports = yeoman.generators.Base.extend({
       skipInstall: this.options['skip-install'],
       bower: false
     });
-  }
+  },
+
 });
