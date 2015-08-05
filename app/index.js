@@ -98,17 +98,17 @@ module.exports = yeoman.generators.Base.extend({
         }
       });
 
-      var relAppFile = 'src/kata_name.js';
+      var relAppFile = 'src/{kata_name}.js';
       this.template(
         path.join('stacks', this.stack, relAppFile),
-        relAppFile.replace(/kata_name/, caser.pascalcase(this.kata)),
+        relAppFile.replace(/\{kata_name\}/, caser.pascalcase(this.kata)),
         context
       );
 
-      var relTestFile = 'tests/kata_name.js';
+      var relTestFile = 'tests/{kata_name}.test.js';
       this.template(
         path.join('stacks', this.stack, relTestFile),
-        relTestFile.replace(/kata_name/, caser.pascalcase(this.kata)),
+        relTestFile.replace(/\{kata_name\}/, caser.pascalcase(this.kata)),
         context
       );
     }
