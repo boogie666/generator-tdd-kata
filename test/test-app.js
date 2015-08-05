@@ -11,7 +11,7 @@ describe('tdd-kata:app', function (done) {
     done();
   });
 
-  it('creates js-mocha katas', function (done) {
+  it('creates js-mocha kata', function (done) {
 
     helpers
       .run(path.join(__dirname, '../app'))

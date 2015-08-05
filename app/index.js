@@ -6,6 +6,17 @@ var yosay = require('yosay');
 var path = require('path');
 var fs = require('fs');
 
+
+function convertTemplateFilenameToOutputFilename(fileName) {
+  return fileName
+    // double lodash prefix indicates a dotfile
+    .replace(/^__/, '.')
+    // otherwise, simply remove the lodash
+    .replace(/^_/, '');
+}
+
+
+// katas and stacks
 var availableKatas = fs.readdirSync(path.join(__dirname, 'templates', 'katas')).map(function(filename) {
   return filename.replace(/\.md$/, '');
 });
@@ -72,10 +83,19 @@ module.exports = yeoman.generators.Base.extend({
         kataName : this.kata
       };
 
-      this.template(path.join('stacks', this.stack, '_gulpfile.js'), 'gulpfile.js', context);
-      this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
-      this.template(path.join('stacks', this.stack, 'jshintrc'), '.jshintrc', context);
-      this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
+      var contents = fs.readdirSync(path.join(__dirname, 'templates', 'stacks', this.stack));
+      var self = this;
+
+      contents.forEach(function(current) {
+        var currentPath = path.join(__dirname, 'templates', 'stacks', self.stack, current);
+        if (fs.statSync(currentPath).isFile()) {
+          self.template(
+            path.join('stacks', self.stack, current),
+            convertTemplateFilenameToOutputFilename(current),
+            context
+          );
+        }
+      });
 
       var relAppFile = 'src/app_file.js';
       this.template(
