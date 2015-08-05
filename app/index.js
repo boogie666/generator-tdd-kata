@@ -6,11 +6,11 @@ var yosay = require('yosay');
 var path = require('path');
 var fs = require('fs');
 
-var availableKatas = fs.readdirSync(path.join(__dirname, "templates", "katas")).map(function(filename) {
+var availableKatas = fs.readdirSync(path.join(__dirname, 'templates', 'katas')).map(function(filename) {
   return filename.replace(/\.md$/, '');
 });
 
-var availableStacks = fs.readdirSync(path.join(__dirname, "templates", "stacks"));
+var availableStacks = fs.readdirSync(path.join(__dirname, 'templates', 'stacks'));
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -59,11 +59,11 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.fs.copy(
-        this.templatePath(path.join("stacks", this.stack, '_package.json')),
+        this.templatePath(path.join('stacks', this.stack, '_package.json')),
         this.destinationPath('package.json')
       );
       this.fs.copy(
-          this.templatePath(path.join("stacks", this.stack, '_gulpfile.js')),
+          this.templatePath(path.join('stacks', this.stack, '_gulpfile.js')),
           this.destinationPath('gulpfile.js')
       );
 
@@ -72,10 +72,10 @@ module.exports = yeoman.generators.Base.extend({
         kataName : this.kata
       };
 
-      this.template(path.join("stacks", this.stack, '_package.json'), 'package.json', context);
+      this.template(path.join('stacks', this.stack, '_package.json'), 'package.json', context);
 
       this.fs.copy(
-        this.templatePath(path.join("stacks", this.stack, 'jshintrc')),
+        this.templatePath(path.join('stacks', this.stack, 'jshintrc')),
         this.destinationPath('.jshintrc')
       );
 
@@ -86,9 +86,9 @@ module.exports = yeoman.generators.Base.extend({
    },
 
     projectfiles: function () {
-      var relAppFile = "src/app_file.js";
+      var relAppFile = 'src/app_file.js';
       this.fs.copy(
-        this.templatePath(path.join("stacks", this.stack, relAppFile)),
+        this.templatePath(path.join('stacks', this.stack, relAppFile)),
         this.destinationPath(relAppFile.replace(/app_file/, this.kata))
       );
 
@@ -98,7 +98,7 @@ module.exports = yeoman.generators.Base.extend({
 
       var relTestFile = 'src/test_file.js';
       this.template(
-        path.join("stacks", this.stack, relTestFile),
+        path.join('stacks', this.stack, relTestFile),
         relTestFile.replace(/test_file/, this.kata + 'Test'),
         context
       );
