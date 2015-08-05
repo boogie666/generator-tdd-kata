@@ -24,7 +24,7 @@ describe('tdd-kata:app', function () {
       'README.MD',
       'gulpfile.js',
       'src/string-calculator.js',
-      'src/string-calculatorTest.js',
+      'tests/string-calculatorTest.js',
       'package.json',
       '.jshintrc'
     ]);

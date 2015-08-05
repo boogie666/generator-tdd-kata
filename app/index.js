@@ -84,7 +84,7 @@ module.exports = yeoman.generators.Base.extend({
         context
       );
 
-      var relTestFile = 'src/test_file.js';
+      var relTestFile = 'tests/test_file.js';
       this.template(
         path.join('stacks', this.stack, relTestFile),
         relTestFile.replace(/test_file/, this.kata + 'Test'),
