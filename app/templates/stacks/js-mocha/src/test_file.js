@@ -1,5 +1,5 @@
-var module = require('./<%= name %>');
+var module = require('./<%= kataName %>');
 
-describe('<%= name %>', function(){
+describe('<%= kataName %>', function(){
   throw new Error('Nothing here but us fails');
 });
