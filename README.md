@@ -1,5 +1,9 @@
 # generator-multistack-tdd-kata
 
+[![Build Status](https://secure.travis-ci.org/prometheas/generator-multistack-tdd-kata.png?branch=develop)](https://travis-ci.org/prometheas/generator-multistack-tdd-kata)
+
+https://travis-ci.org/prometheas/generator-multistack-tdd-kata.svg
+
 This project started as a fork of [boogie666](https://github.com/boogie666)'s
 [generator-tdd-kata](https://github.com/boogie666/generator-tdd-kata) project,
 which helps you whip up a clean TDD kata project in JavaScript, and using
