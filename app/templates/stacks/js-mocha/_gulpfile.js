@@ -11,7 +11,7 @@ Error.stackTraceLimit = 2;
 
 gulp.task('test', function() {
   gulp
-    .src('src/**/*Test.js', {
+    .src('tests/*.test.js', {
       read: false
     })
     .pipe(mocha())
@@ -22,7 +22,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('watch', function(){
-  gulp.watch('src/**/*.js', ['test']);
+  gulp.watch('tests/*.test.js', ['test']);
 });
 
 gulp.task('default', ['test','watch']);
