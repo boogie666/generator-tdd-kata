@@ -16,7 +16,7 @@ function determineOutputFileName(context, fileName) {
     // otherwise, simply remove the lodash
     .replace(/^_/, '')
     // interpolate kata name into output filenames
-    .replace(/\{kata_name\}/, context.kataNamePascalized);
+    .replace(/\{kata_name\}/, context.kata.pascalized);
 }
 
 
@@ -84,10 +84,12 @@ module.exports = yeoman.generators.Base.extend({
     projectfiles: function () {
 
       var context = {
-        version  : this.version,
-        name     : this.name,
-        kataName : this.kata,
-        kataNamePascalized: caser.pascalcase(this.kata)
+        version : this.version,
+        name    : this.name,
+        kata    : {
+          slug       : this.kata,
+          pascalized : caser.pascalcase(this.kata)
+        }
       };
 
       // list all file paths recursively, excluding directories

@@ -1,7 +1,7 @@
 'use strict';
 
-var module = require('../src/<%= kataNamePascalized %>');
+var module = require('../src/<%= kata.pascalized %>');
 
-describe('<%= kataName %>', function(){
+describe('<%= kata.slug %>', function(){
   throw new Error('Nothing here but us fails');
 });

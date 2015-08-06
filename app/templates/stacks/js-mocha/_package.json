@@ -1,5 +1,5 @@
 {
-  "name": "<%= kataName %>-with-mocha",
+  "name": "<%= kata.slug %>-with-mocha",
   "version": "<%= version %>",
   "description": "Mocha-based TDD kata generator",
   "main": "index.js",
