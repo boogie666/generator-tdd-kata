@@ -32,6 +32,7 @@ describe('tdd-kata:app', function (done) {
           'src/StringCalculator.js',
           'tests/StringCalculator.test.js',
           'package.json',
+          '.gitignore',
           '.jshintrc'
         ]);
 
