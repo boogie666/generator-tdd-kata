@@ -2,10 +2,6 @@
 
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
-var chai = require('chai');
-
-chai.config.showDiff = false;
-chai.should();
 
 Error.stackTraceLimit = 2;
 
