@@ -1,0 +1,6 @@
+code_generation: false
+
+suites:
+    kata_suite:
+        namespace: TDDKatas
+        psr4_prefix: TDDKatas
