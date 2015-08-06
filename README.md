@@ -18,8 +18,6 @@ to get a feel for what different testing solutions are like to use.
 And so this fork was born.
 
 
-> [Yeoman](http://yeoman.io) generator
-
 ## What's a kata?
 
 A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.
