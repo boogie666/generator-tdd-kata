@@ -135,7 +135,50 @@ You'll need to add a new markdown-formatted file with instructions for the kata 
 
 ### Add a Stack Template
 
-The main reason I created this fork is to support an extensible array of kata stacks.  The first one I'd added was for `php-phpspec`, where the stack is named for `{$language}-{$testing_framework}`.  Perhaps someone (maybe you?) might one day submit `ruby-cucumber` or `python-pyunit` stack templates.
+The main reason I created this fork is to support an extensible array of kata stacks.  The first ones I'd added are for `php-phpspec` and `php-phpunit`, where the stack is named for `{$language}-{$testing_framework}`.  Perhaps someone (maybe you?) might one day submit `ruby-cucumber` or `python-pyunit` stack templates.  I don't have a generator set up to scaffold the process, but it's pretty easy to do.
+
+#### Creating a New Stack
+
+First, you'll need to create a directory for your stack at `stacks/{$language}-{$testing_framework}`; all your files will go in here.
+
+At minimum, you'll want your code and test files (more on this in a bit, as their naming and directory locations can vary by language and testing framework), a `__package.json` file that declares any node dependencies, and any additional package manager configuration files necessary to allow your testing dependencies to be installed.  You'll notice, for example, that the `php-phpspec` and `php-phpunit` stacks contain a `_composer.json` file which identifies their unit testing framework dependencies.  If you're using RSpec, you'll likely want a `_Gemfile` in there, a `requirements.txt` file if you're using a Python testing framework, and so on.
+
+Please also add a `__gitignore` file which is configured to ignore whatever directory locations your dependency manager(s) use to install their files, as some people like to version their katas to enforce the frequent commit habit.
+
+*Note*: if there is a `gulp` wrapper that can drive your testing framework, you are encouraged to add a `_gulpfile.js` as well, which basically has `test` and `watch` tasks that can automatically run your testing harness.
+
+So, remember when I'd promised to return to the matter of the code and test files?  Here we are again.  The thing to note here is that could be called whatever you like, but you should use `{kata_name}` in the filename.  Typically, the code file is `_{kata_name}.ext` and the test file is called `_{kata_name}Test.ext`, where `ext` is whatever file extension your language likes to use.  You are further encouraged to use whatever convention is appropriate for the test file names in your testing framework.
+
+Just to help drive the point home, let's compare the code and testing files from the `js-mocha` stack:
+
+```
+src/{kata_name}.js
+tests/{kata_name}.test.js
+```
+
+To the files in the `php-phpspec` stack:
+
+```
+src/{kata_name}.php
+spec/{kata_name}Spec.php
+```
+
+#### Stack Template Files and Variables
+
+One more thing to keep in mind is that the files in your stack directory are _templates_.  That is to say that they undergo transformation during the generation process.
+
+The following variables are available for interpolation within your text files:
+
+- `version`
+- `name` (the person performing the kata)
+- `kata.slug` a slug version of the kata (e.g., `fizz-buzz`) derived directly from the kata file names
+- `kata.pascalized` a Pascal cased version of the kata name (e.g., `FizzBuzz`)
+
+Additionally, the names of files in the stack all start with at least one underscore (it gets removed from the generated files).  This is mostly just to help stack developers recognize source template files versus the files the generator creates… trust me, when you're going back and forth, it can get confusing quickly.
+
+Files whose name start with _two_ leading underscores (e.g., `__gitignore`) will be output as "dot-files" by the generator.
+
+Finally, you can use `{kata_name}` anywhere in a file name to use the Pascal cased name of the kata in an filename (mostly useful for the code and testing files, but it works for any files).
 
 
 ### Worfklow & Pull Requests
