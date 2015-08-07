@@ -9,7 +9,7 @@ var fs = require('fs');
  */
 var phpunit = require('gulp-phpunit');
 
-if (! fs.exists('./vendor/bin/phpunit')) {
+if (! fs.existsSync('./vendor/bin/phpunit')) {
   console.warn('You must run `composer install` to install phpunit');
   process.exit(1);
 }
