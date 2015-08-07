@@ -30,10 +30,15 @@ From [codekata.com](http://codekata.com):
 >
 > Remember that the point of the kata is not arriving at a correct answer. The point is the stuff you learn along the way. The goal is the practice, not the solution.
 
-Watch a couple of people performing the "Bowling" TDD kata (in this case with PHPSpec and PHPStorm):
+Watch a few people performing some common code katas with various languages and frameworks:
 
-- [Shawn McCool](https://www.youtube.com/watch?v=1-o1VAzOQiI)
-- [Kacper Gunia](https://www.youtube.com/watch?v=W-BuKLpUaR0)
+- [JavaScript Prime Factors code kata using JsTestDriver with Zach Leatherman](https://www.youtube.com/watch?v=zsCYkmAJBAY)
+- [Bowling kata in PHPSpec with Shawn McCool](https://www.youtube.com/watch?v=1-o1VAzOQiI)
+- [Bowling kata in PHPSpec with Kacper Gunia](https://www.youtube.com/watch?v=W-BuKLpUaR0)
+- [FizzBuzz kata in RSpec (Ruby) from Makers Academy](https://www.youtube.com/watch?v=CHTep2zQVAc)
+- [Char Counter kata in RSpec (Ruby) with Pablo Logioco](https://www.youtube.com/watch?v=2dC7iOyDuN8)
+- [Calculator kata in PHPUnit with Pablo Morales](https://www.youtube.com/watch?v=rjYtqjp9_Zs) (Spanish)
+- [Tony Messias, FizzBuzz with PHPUnit via Composer](https://www.youtube.com/watch?v=CD4T22qpfUg) (Portugese)
 
 You'll note they go about it rather differently, and that's the whole point.  They will also have performed this kata several times before making these screencasts, and quite likely many times again since.
 
