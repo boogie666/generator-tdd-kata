@@ -1,0 +1,17 @@
+{
+    "name": "<%= name %>/<%= kata.slug %>-with-phpspec",
+    "description": "PHPSpec-based TDD kata for <%= kata.slug %>",
+    "authors": [
+        {
+            "name": "<%= name %>"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "4.7.x"
+    },
+    "autoload": {
+        "psr-4": {
+            "TDDKatas\\": "src/"
+        }
+    }
+}
