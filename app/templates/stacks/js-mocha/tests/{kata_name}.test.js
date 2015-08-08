@@ -3,12 +3,9 @@
 var chai = require('chai');
 var expect = chai.expect;
 
-/**
- * Simply change `false` to `true` if you'd like to use Chai's "should" style.
- *
- * @see http://chaijs.com/guide/styles/#should
- */
-var should = (false) ? chai.should() : null;
+// Uncoment the next line to use the "should" API
+// var should = chai.should();
+// see http://chaijs.com/guide/styles/#should
 
 /**
  * Configuration for Chai.
