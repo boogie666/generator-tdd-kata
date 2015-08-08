@@ -1,7 +1,5 @@
 'use strict';
 
-var <%= kata.pascalized %> = require('../src/<%= kata.pascalized %>');
-
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -18,6 +16,7 @@ var should = (false) ? chai.should() : null;
  * @see http://chaijs.com/guide/styles/#configure
  */
 chai.config.showDiff = false;
+var <%= kata.pascalized %> = require('../src/<%= kata.pascalized %>');
 
 
 
