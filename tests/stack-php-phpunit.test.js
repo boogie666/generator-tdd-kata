@@ -5,7 +5,7 @@ var helpers = require('yeoman-generator').test;
 var path = require('path');
 var os = require('os');
 
-describe('php-unit kata stack', function (done) {
+describe('php-unit kata stack', function () {
 
   it('installs the correct files', function(done) {
     helpers
