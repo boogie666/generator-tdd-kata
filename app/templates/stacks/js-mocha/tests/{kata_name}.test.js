@@ -9,9 +9,8 @@ var expect = chai.expect;
 
 var <%= kata.pascalized %> = require('../src/<%= kata.pascalized %>');
 
-
-
-
-describe('<%= kata.slug %>', function(){
-  throw new Error('Nothing here but us fails');
+describe('<%= kata.slug %>', function() {
+  it('your first failing test', function() {
+    expect('Get your kata started!').not.to.be.a.string;
+  });
 });
