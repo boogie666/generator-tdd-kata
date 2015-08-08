@@ -7,12 +7,6 @@ var expect = chai.expect;
 // var should = chai.should();
 // see http://chaijs.com/guide/styles/#should
 
-/**
- * Configuration for Chai.
- *
- * @see http://chaijs.com/guide/styles/#configure
- */
-chai.config.showDiff = false;
 var <%= kata.pascalized %> = require('../src/<%= kata.pascalized %>');
 
 
