@@ -26,7 +26,7 @@ describe('js-mocha kata stack', function (done) {
           'README.md',
           'gulpfile.js',
           'src/StringCalculator.js',
-          'tests/StringCalculator.test.js',
+          'spec/StringCalculator.spec.js',
           'package.json',
           '.gitignore',
           '.jshintrc'
