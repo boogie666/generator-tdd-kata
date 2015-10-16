@@ -1,6 +1,6 @@
 {
   "name": "generator-multistack-tdd-kata",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman generator to prepare TDD katas for various stack technologies.",
   "license": "MIT",
   "main": "app/index.js",
