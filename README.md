@@ -108,7 +108,7 @@ Now go forth a practice your katas.
 
 ## Stay updated
 
-We're adding more Katas day-by-day. To check latests visit: [TDD Katas](https://github.com/garora/TDD-Katas)
+I'll be adding more Katas as I find them, which means I'd love to hear from anyone that finds new ones (or that has created their own new ones).  Star this repo to get notifications of any updates.
 
 
 ## License
