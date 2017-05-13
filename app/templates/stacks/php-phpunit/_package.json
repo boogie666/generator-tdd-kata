@@ -1,7 +1,7 @@
 {
-  "name": "<%= kataName %>",
-  "version": "1.0.0",
-  "description": "",
+  "name": "<%= kata.slug %>-with-phpunit",
+  "version": "<%= version %>",
+  "description": "PHPUnit-based TDD kata for <%= kata.slug %>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,9 +10,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "chai": "^2.2.0",
     "gulp": "^3.8.11",
-    "gulp-mocha": "^2.0.0",
-    "mocha": "^2.2.1"
+    "gulp-phpunit": "^0.8.4"
   }
 }

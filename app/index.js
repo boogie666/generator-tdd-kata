@@ -1,9 +1,35 @@
 'use strict';
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var caser = require('stringcase');
+var path = require('path');
+var fs = require('fs');
+var glob = require('glob');
 
-var types = ['string-calculator', 'fizz-buzz', 'bowling-game', 'leap-year', 'odd-even', 'recently-used-list', 'word-wrap'];
+
+function determineOutputFileName(context, fileName) {
+  return fileName
+    // double lodash prefix indicates a dotfile
+    .replace(/^__/, '.')
+    // otherwise, simply remove the lodash
+    .replace(/^_/, '')
+    // interpolate kata name into output filenames
+    .replace(/\{kata_name\}/, context.kata.pascalized);
+}
+
+
+// katas and stacks
+var availableKatas = fs
+  .readdirSync(path.join(__dirname, 'templates', 'katas'))
+  .map(function (filename) {
+    return filename.replace(/\.md$/, '');
+  });
+
+var availableStacks = fs.readdirSync(
+  path.join(__dirname, 'templates', 'stacks')
+);
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -18,22 +44,35 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the fabulous ' + chalk.red('tdd-kata') + ' generator!'
     ));
 
-    var prompts = [{
-      name: 'name',
-      message: 'What is your name',
-      default : process.env.USER
-    },{
-      name : 'type',
-      type : 'list',
-      message : 'What type of kata?',
-      choices : types,
-      default : 'string-calculator'
-    }];
+    var prompts = [
+      {
+        name: 'name',
+        message: 'What is your name',
+        default : process.env.USER
+      },
+      {
+        name : 'kata',
+        type : 'list',
+        message : 'What type of kata?',
+        choices : availableKatas,
+        default : 'string-calculator'
+      },
+      {
+        name : 'stack',
+        type : 'list',
+        message : 'What testing stack?',
+        choices : availableStacks,
+        default : 'js-mocha'
+      }
+    ];
 
     this.prompt(prompts, function (props) {
+
+      this.version = "1.0.0";
       this.name = props.name;
-      this.type = props.type;
-      
+      this.kata = props.kata;
+      this.stack = props.stack;
+
       done();
     }.bind(this));
   },
@@ -41,37 +80,36 @@ module.exports = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
+        this.templatePath(path.join('katas', this.kata + '.md')),
+        this.destinationPath('README.md')
       );
-      this.fs.copy(
-          this.templatePath('_gulpfile.js'),
-          this.destinationPath('gulpfile.js'));
-      var context = {
-        name : this.name,
-        kataName : this.type
-      };
-      this.template('_package.json', 'package.json', context);
-      
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc'));
-
-      this.fs.copy(
-          this.templatePath(this.type+'/'+'README.MD'),
-          this.destinationPath('README.MD'));
-
-       
-   },
+    },
 
     projectfiles: function () {
-      this.fs.copy(this.templatePath('src/app_file.js'),
-        this.destinationPath('src/'+this.type+'.js'));
 
       var context = {
-        name : this.type
+        version : this.version,
+        name    : this.name,
+        kata    : {
+          slug       : this.kata,
+          pascalized : caser.pascalcase(this.kata)
+        }
       };
-      this.template('src/test_file.js', 'src/' + this.type + '.test.js', context);
+
+      // list all file paths recursively, excluding directories
+      var contents = glob.sync('**', {
+        cwd: path.join(__dirname, 'templates', 'stacks', this.stack),
+        nodir: true
+      });
+
+      var self = this;
+      contents.forEach(function(current) {
+        self.template(
+          path.join('stacks', self.stack, current),
+          determineOutputFileName(context, current),
+          context
+        );
+      });
     }
   },
 
@@ -80,5 +118,6 @@ module.exports = yeoman.generators.Base.extend({
       skipInstall: this.options['skip-install'],
       bower: false
     });
-  }
+  },
+
 });

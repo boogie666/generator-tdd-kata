@@ -1,0 +1,16 @@
+{
+  "name": "<%= kata.slug %>-with-mocha",
+  "version": "<%= version %>",
+  "description": "Mocha-based TDD kata for <%= kata.slug %>",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --opts test/mocha.opts"
+  },
+  "author": "<%= name %>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.1"
+  }
+}

@@ -1,33 +1,48 @@
 {
-  "name": "generator-tdd-kata",
-  "version": "0.0.8",
-  "description": "Yeoman generator",
+  "name": "generator-multistack-tdd-kata",
+  "version": "0.0.3",
+  "description": "Yeoman generator to prepare TDD katas for various stack technologies.",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "https://github.com/boogie666/generator-tdd-kata.git",
+  "repository": "git@github.com:prometheas/generator-multistack-tdd-kata.git",
   "author": {
-    "name": "Boogie",
-    "email": "bbugarschi@gmail.com",
-    "url": "https://github.com/boogie666"
+    "name": "John Lianoglou",
+    "email": "prometheas@gmail.com",
+    "url": "https://github.com/prometheas"
   },
+  "contributors": [
+    {
+      "name": "Boogie",
+      "email": "bbugarschi@gmail.com",
+      "url": "https://github.com/boogie666"
+    }
+  ],
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "clean": "rm -rf node_modules",
+    "reinstall": "npm run clean; npm install",
+    "test": "mocha spec"
   },
   "files": [
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "tdd",
+    "kata"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.18.9",
     "chalk": "^1.0.0",
+    "glob": "^5.0.14",
+    "stringcase": "^1.0.8",
+    "yeoman-generator": "^0.18.9",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "mocha": "*"
+    "chai": "^2.2.0",
+    "mocha": "^3.2.0",
+    "shelljs": "^0.5.3"
   }
 }

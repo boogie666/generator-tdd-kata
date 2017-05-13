@@ -1,1 +1,7 @@
-* text=auto
+# Auto detect text files and perform LF normalization
+**     text eol=lf
+
+# Windows files
+**.bat text eol=crlf
+**.cmd text eol=crlf
+**.exe binary
