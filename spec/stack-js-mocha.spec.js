@@ -26,7 +26,6 @@ describe('js-mocha kata stack', function (done) {
       .on('end', function() {
         assert.file([
           'README.md',
-          'gulpfile.js',
           'src/StringCalculator.js',
           'spec/StringCalculator.spec.js',
           'package.json',
@@ -65,15 +64,6 @@ describe('js-mocha kata stack', function (done) {
         // failing initial test should return non-zero status
         assert.notEqual(results.code, 0, '`npm test` failed to return a non-zero status');
         assert(results.output.match(/StringCalculator variable should not be null/), '`npm test` output should complain that StringCalculator should not be null');
-
-        results = shell.exec('gulp test', {
-          silent: true
-        });
-
-        assert(results.output.match(/Using gulpfile /), '`gulp test` output should include text "Using glupfile"');
-        assert(results.output.match(/0 passing/), '`gulp test` output should report 0 passing tests');
-        assert(results.output.match(/1 failing/), '`gulp test` output should report 1 failing test');
-        assert(results.output.match(/StringCalculator variable should not be null/), '`gulp test` output should complain that StringCalculator should not be null');
 
         done();
       });
