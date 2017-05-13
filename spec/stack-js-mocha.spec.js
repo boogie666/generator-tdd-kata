@@ -27,7 +27,7 @@ describe('js-mocha kata stack', function (done) {
         assert.file([
           'README.md',
           'src/StringCalculator.js',
-          'spec/StringCalculator.spec.js',
+          'test/StringCalculator.spec.js',
           'package.json',
           '.gitignore',
           '.jshintrc'

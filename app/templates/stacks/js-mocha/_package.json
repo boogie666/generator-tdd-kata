@@ -4,7 +4,7 @@
   "description": "Mocha-based TDD kata for <%= kata.slug %>",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha spec/**.js"
+    "test": "mocha --opts test/mocha.opts"
   },
   "author": "<%= name %>",
   "license": "MIT",
