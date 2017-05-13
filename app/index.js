@@ -21,11 +21,15 @@ function determineOutputFileName(context, fileName) {
 
 
 // katas and stacks
-var availableKatas = fs.readdirSync(path.join(__dirname, 'templates', 'katas')).map(function(filename) {
-  return filename.replace(/\.md$/, '');
-});
+var availableKatas = fs
+  .readdirSync(path.join(__dirname, 'templates', 'katas'))
+  .map(function (filename) {
+    return filename.replace(/\.md$/, '');
+  });
 
-var availableStacks = fs.readdirSync(path.join(__dirname, 'templates', 'stacks'));
+var availableStacks = fs.readdirSync(
+  path.join(__dirname, 'templates', 'stacks')
+);
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
