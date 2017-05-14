@@ -1,5 +1,5 @@
 {
   "ignore": [
-    "app/templates/stacks"
+    "app/templates/stacks/**"
   ]
 }
