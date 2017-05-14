@@ -5,9 +5,8 @@ var helpers = require('yeoman-generator').test;
 var path = require('path');
 var os = require('os');
 
-describe('php-phpspec kata stack', function (done) {
-
-  it('installs the correct files', function(done) {
+describe('php-phpspec kata stack', function () {
+  it('installs the correct files', function (done) {
     helpers
       .run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -15,12 +14,11 @@ describe('php-phpspec kata stack', function (done) {
         'skip-install': true
       })
       .withPrompt({
-        name  : 'some_name',
-        kata  : 'bowling-game',
-        stack : 'php-phpspec'
+        name: 'some_name',
+        kata: 'bowling-game',
+        stack: 'php-phpspec'
       })
-
-      .on('end', function() {
+      .on('end', function () {
         assert.file([
           'README.md',
           'gulpfile.js',
@@ -35,5 +33,4 @@ describe('php-phpspec kata stack', function (done) {
         done();
       });
   });
-
 });

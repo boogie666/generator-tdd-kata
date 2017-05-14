@@ -6,12 +6,10 @@ var path = require('path');
 var os = require('os');
 var shell = require('shelljs');
 
-describe('js-mocha kata stack', function (done) {
-
+describe('js-mocha kata stack', function () {
   var tempTestingDir = path.join(os.tmpdir(), './temp-test');
 
   it('installs the correct files', function (done) {
-
     helpers
       .run(path.join(__dirname, '../app'))
       .inDir(tempTestingDir)
@@ -19,11 +17,11 @@ describe('js-mocha kata stack', function (done) {
         'skip-install': true
       })
       .withPrompt({
-        name  : 'some_name',
-        kata  : 'string-calculator',
-        stack : 'js-mocha'
+        name: 'some_name',
+        kata: 'string-calculator',
+        stack: 'js-mocha'
       })
-      .on('end', function() {
+      .on('end', function () {
         assert.file([
           'README.md',
           'src/StringCalculator.js',
@@ -37,8 +35,7 @@ describe('js-mocha kata stack', function (done) {
       });
   });
 
-  it('can properly run a failing test after installation', function(done) {
-
+  it('can properly run a failing test after installation', function (done) {
     this.timeout(20000);
 
     helpers
@@ -48,11 +45,11 @@ describe('js-mocha kata stack', function (done) {
         'skip-install': true
       })
       .withPrompt({
-        name  : 'some_name',
-        kata  : 'string-calculator',
-        stack : 'js-mocha'
+        name: 'some_name',
+        kata: 'string-calculator',
+        stack: 'js-mocha'
       })
-      .on('end', function() {
+      .on('end', function () {
         shell.exec('npm install', {
           silent: true
         });
@@ -68,5 +65,4 @@ describe('js-mocha kata stack', function (done) {
         done();
       });
   });
-
 });

@@ -6,8 +6,7 @@ var path = require('path');
 var os = require('os');
 
 describe('php-unit kata stack', function () {
-
-  it('installs the correct files', function(done) {
+  it('installs the correct files', function (done) {
     helpers
       .run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -15,12 +14,11 @@ describe('php-unit kata stack', function () {
         'skip-install': true
       })
       .withPrompt({
-        name  : 'some_name',
-        kata  : 'fizz-buzz',
-        stack : 'php-phpunit'
+        name: 'some_name',
+        kata: 'fizz-buzz',
+        stack: 'php-phpunit'
       })
-
-      .on('end', function() {
+      .on('end', function () {
         assert.file([
           'README.md',
           'gulpfile.js',
@@ -35,5 +33,4 @@ describe('php-unit kata stack', function () {
         done();
       });
   });
-
 });
