@@ -17,7 +17,7 @@
             "--colors",
             "--glob",
             "*.spec.js",
-            "${workspaceRoot}/spec"
+            "${workspaceRoot}/test"
           ],
           "internalConsoleOptions": "openOnSessionStart"
         },
