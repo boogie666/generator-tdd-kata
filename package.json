@@ -24,7 +24,7 @@
     "clean": "rm -rf node_modules",
     "lint": "eslint app/*.js spec/*.js",
     "reinstall": "npm run clean; npm install",
-    "test": "mocha spec"
+    "test": "mocha"
   },
   "files": [
     "app"
