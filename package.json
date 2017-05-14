@@ -38,7 +38,7 @@
     "chalk": "^1.0.0",
     "glob": "^7.1.1",
     "stringcase": "^3.2.1",
-    "yeoman-generator": "^0.18.9",
+    "yeoman-generator": "^0.18.10",
     "yosay": "^2.0.0"
   },
   "devDependencies": {
