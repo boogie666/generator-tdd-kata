@@ -60,7 +60,7 @@ describe('js-mocha kata stack', function () {
 
         // failing initial test should return non-zero status
         assert.notEqual(results.code, 0, '`npm test` failed to return a non-zero status');
-        assert(results.output.match(/StringCalculator variable should not be null/), '`npm test` output should complain that StringCalculator should not be null');
+        assert(results.toString().match(/StringCalculator variable should not be null/), '`npm test` output should complain that StringCalculator should not be null');
 
         done();
       });
