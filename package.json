@@ -36,7 +36,7 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
-    "glob": "^5.0.14",
+    "glob": "^7.1.1",
     "stringcase": "^1.0.8",
     "yeoman-generator": "^0.18.9",
     "yosay": "^1.0.2"
