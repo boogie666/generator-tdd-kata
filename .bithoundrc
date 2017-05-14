@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mute": "yeoman-generator"
+  },
+  "ignore": [
+    "app/templates/stacks/**"
+  ]
+}

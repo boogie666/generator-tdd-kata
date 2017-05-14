@@ -1,6 +1,11 @@
 # generator-multistack-tdd-kata
 
 [![Build Status](https://secure.travis-ci.org/prometheas/generator-multistack-tdd-kata.png?branch=develop)](https://travis-ci.org/prometheas/generator-multistack-tdd-kata)
+<br />
+[![bitHound Overall Score](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata/badges/score.svg)](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata)
+[![bitHound Dependencies](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata/badges/dependencies.svg)](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata/develop/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata/badges/devDependencies.svg)](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata/develop/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata/badges/code.svg)](https://www.bithound.io/github/prometheas/generator-multistack-tdd-kata)
 
 This project started as a fork of [boogie666](https://github.com/boogie666)'s
 [generator-tdd-kata](https://github.com/boogie666/generator-tdd-kata) project,

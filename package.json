@@ -18,10 +18,13 @@
     }
   ],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6.10"
   },
   "scripts": {
-    "test": "mocha spec"
+    "clean": "rm -rf node_modules",
+    "lint": "eslint app/*.js spec/*.js",
+    "reinstall": "npm run clean; npm install",
+    "test": "mocha"
   },
   "files": [
     "app"
@@ -33,16 +36,15 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
-    "glob": "^5.0.14",
-    "stringcase": "^1.0.8",
-    "yeoman-generator": "^0.18.9",
-    "yosay": "^1.0.2"
+    "glob": "^7.1.1",
+    "stringcase": "^3.2.1",
+    "yeoman-generator": "^0.18.10",
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
-    "gulp": "^3.8.11",
-    "gulp-mocha": "^2.0.0",
-    "mocha": "^2.2.1",
-    "shelljs": "^0.5.3"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "mocha": "^3.2.0",
+    "shelljs": "^0.7.7"
   }
 }
