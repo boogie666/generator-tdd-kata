@@ -42,9 +42,8 @@
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
     "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^13.0.0",
+    "eslint-config-airbnb": "^14.1.0",
     "mocha": "^3.2.0",
     "shelljs": "^0.5.3"
   }
